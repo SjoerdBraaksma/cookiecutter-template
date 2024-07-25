@@ -1,0 +1,15 @@
+name: {{cookiecutter.project_slug}}
+channels:
+  -conda-forge
+  - defaults
+  - nodefaults
+dependencies:
+  - chardet=5.1.0
+  - conda-lock=1.4.0
+  - ipykernel=6.21.1
+  - python={{cookiecutter.python_version}}
+  - pip==23.0
+  - numpy
+  - pandas
+  - scikit-learn
+  - pip::pre-commit

@@ -1,0 +1,13 @@
+{
+    "full_name": "Sjoerd Braaksma",
+    "email": "example@email.com",
+    "repo_name": "Test_Repo",
+    "project_name": "My New Project",
+    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "pkg_name": "{{ cookiecutter.project_slug|replace('-', '') }}",
+    "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+    "version": "0.1.0",
+    "python_version": "3.12.4",
+    "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
+    "_copy_without_render": [".github/*"]
+  }

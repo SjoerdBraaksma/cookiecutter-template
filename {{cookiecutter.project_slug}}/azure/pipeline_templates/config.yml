@@ -1,0 +1,2 @@
+variables:
+  pythonVersion: {{cookiecutter.python_version}}

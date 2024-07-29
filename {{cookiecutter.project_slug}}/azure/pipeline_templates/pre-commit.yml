@@ -1,0 +1,8 @@
+steps:
+  - template: /azure/pipeline_templates/install_and_configure_python.yml
+    parameters:
+      pythonVersion: '$(pythonVersion)'
+
+  - script: |
+      pre-commit run --all-files --show-diff-on-failure
+    displayName: run pre-commit

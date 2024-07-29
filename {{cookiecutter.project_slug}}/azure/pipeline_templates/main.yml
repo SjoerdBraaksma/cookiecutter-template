@@ -1,0 +1,39 @@
+variables:
+- template: /azure/pipeline_templates/config.yml
+# Create booleans for branches we want to build.
+# TODO: place in config?
+- name: isMain
+  value: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+- name: isDev
+  value: $[eq(variables['Build.SourceBranch'], 'refs/heads/develop')]
+- name: PublishPackage
+  value: False
+
+
+stages:
+  - stage: PreCommit
+    jobs:
+      - job: ExecutePreCommit
+        displayName: "Perform pre-commit checks"
+        steps:
+        - template: /azure/pipeline_templates/pre-commit.yml
+          parameters:
+            pythonVersion: '$(pythonVersion)'
+
+  - stage: UnitTest
+    jobs:
+    - job: ExecuteUnitTests
+      displayName: "Unit Tests Coverage"
+      steps:
+      - template: /azure/pipeline_templates/test.yml
+        parameters:
+          pythonVersion: '$(pythonVersion)'
+
+  - stage: Build
+    jobs:
+      - job: Build
+        displayName: "Build and store staging artifact"
+        steps:
+          - template: /azure/pipeline_templates/build.yml
+            parameters:
+              pythonVersion: '$(pythonVersion)'

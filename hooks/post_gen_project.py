@@ -2,7 +2,6 @@ import subprocess
 import os
 
 environment_files= [
-    "../{{cookiecutter.project_slug}}/init_conda.sh",
     "../{{cookiecutter.project_slug}}/init_env.sh"
 ]
 

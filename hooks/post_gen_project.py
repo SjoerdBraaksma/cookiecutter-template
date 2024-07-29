@@ -1,14 +1,14 @@
-# import re
-# import os
+import subprocess
+import os
 
+environment_files= [
+    "../{{cookiecutter.project_slug}}/init_conda.sh",
+    "../{{cookiecutter.project_slug}}/init_env.sh"
+]
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 
-#     project_name = '{{ cookiecutter.project_name }}'
-
-#     repo_foldername= re.sub("\\\hooks", "", os.path.dirname(os.path.realpath(__file__)))
-#     new_foldername= re.sub("cc_template", "test", repo_foldername)
-#     os.rename(
-#         repo_foldername,
-#         new_foldername
-#     )
+    if "{{cookiecutter.initialize_environment}}" == "true":
+        for file in environment_files:
+            subprocess.run(["sh", file])
+            os.remove(file)

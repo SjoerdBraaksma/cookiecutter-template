@@ -1,5 +1,6 @@
-# Install all these in base environment of conda
-echo "installing pre-commit in base conda environment"
+#  Ensure in base environment of conda
+# Install all these
+echo "installing pre-commit"
 command source activate base
 command pip3 install pre-commit
 

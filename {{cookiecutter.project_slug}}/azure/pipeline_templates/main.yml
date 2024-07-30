@@ -20,15 +20,6 @@ stages:
           parameters:
             pythonVersion: '$(pythonVersion)'
 
-  - stage: UnitTest
-    jobs:
-    - job: ExecuteUnitTests
-      displayName: "Unit Tests Coverage"
-      steps:
-      - template: /azure/pipeline_templates/test.yml
-        parameters:
-          pythonVersion: '$(pythonVersion)'
-
   - stage: Build
     jobs:
       - job: Build

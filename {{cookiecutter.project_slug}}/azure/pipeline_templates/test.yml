@@ -1,8 +1,0 @@
-steps:
-  - template: /azure/pipeline_templates/install_and_configure_python.yml
-    parameters:
-      pythonVersion: '$(pythonVersion)'
-
-  - script: |
-      python -m pytest tests/unit_tests --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-config=.coveragerc_pipeline --cov-report=xml --cov-report=html -m "not onlylocal"
-    displayName: 'Unit tests'

@@ -1,5 +1,5 @@
 variables:
-- template: /azure/pipeline_templates/config.yml
+- template: /.azuredevops/pipeline_templates/config.yml
 # Create booleans for branches we want to build.
 # TODO: place in config?
 - name: isMain
@@ -16,7 +16,7 @@ stages:
       - job: ExecutePreCommit
         displayName: "Perform pre-commit checks"
         steps:
-        - template: /azure/pipeline_templates/pre-commit.yml
+        - template: /.azuredevops/pipeline_templates/pre-commit.yml
           parameters:
             pythonVersion: '$(pythonVersion)'
 
@@ -25,6 +25,6 @@ stages:
       - job: Build
         displayName: "Build and store staging artifact"
         steps:
-          - template: /azure/pipeline_templates/build.yml
+          - template: /.azuredevops/pipeline_templates/build.yml
             parameters:
               pythonVersion: '$(pythonVersion)'

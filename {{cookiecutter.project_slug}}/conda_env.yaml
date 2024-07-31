@@ -1,10 +1,10 @@
-name: "test" # {{cookiecutter.project_slug}}
+name: {{cookiecutter.project_slug}}
 channels:
   - conda-forge
   - defaults
   - nodefaults
 dependencies:
-  - python==3.11.4 #{{cookiecutter.python_version}}
+  - python=={{cookiecutter.python_version}}
   - chardet=5.2.0
   - conda-lock=1.4.0
   - ipykernel=6.21.1

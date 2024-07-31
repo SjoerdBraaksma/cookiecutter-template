@@ -1,4 +1,4 @@
-## sb_puntenwolken_classificatie Table of Contents
+## {{cookiecutter.project_slug}} Table of Contents
 
 <!-- vscode-markdown-toc -->
 - [Git setup](#git-setup)

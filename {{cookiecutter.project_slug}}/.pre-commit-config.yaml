@@ -17,7 +17,7 @@ exclude:
     )$
 
 default_language_version:
-    python: {{cookiecutter.python_version}}
+    python: 3.11.4 #{{cookiecutter.python_version}}
 
 repos:
 -  repo: https://github.com/pre-commit/pre-commit-hooks
@@ -60,4 +60,3 @@ repos:
     hooks:
     -   id: flake8
         args: ['--max-line-length=300']
-

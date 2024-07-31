@@ -6,14 +6,14 @@ command pip3 install pre-commit
 
 # Install requirements.txt if it's there
 if [ -f requirements.txt ]; then
-    command pip3 install -r requirements.txt 
+    command pip3 install -r requirements.txt
 fi
 
-# Install & activate conda environment 
+# Install & activate conda environment
 conda_env="{{cookiecutter.project_slug}}"
 if conda env list | grep -q "\b$conda_env\b"; then
     echo "A conda environment with the same name already exists, skipping installation."
 else
     echo "Creating conda environment from YAML"
-    command  conda env create -f conda_env.yaml 
+    command  conda env create -f conda_env.yaml
 fi

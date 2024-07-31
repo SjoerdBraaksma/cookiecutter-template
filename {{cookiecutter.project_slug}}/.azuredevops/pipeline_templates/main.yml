@@ -20,6 +20,7 @@ stages:
           parameters:
             pythonVersion: '$(pythonVersion)'
 
+{% if cookiecutter.poetry_package_mode -%}
   - stage: Build
     jobs:
       - job: Build
@@ -28,3 +29,7 @@ stages:
           - template: /.azuredevops/pipeline_templates/build.yml
             parameters:
               pythonVersion: '$(pythonVersion)'
+{%- else -%}
+# No build step added, since poetry_package_mode is set to false during cookiecutter initialization.
+# To change this, set the package-mode value in the pyproject.toml to true, and add a build step here.
+{% endif %}

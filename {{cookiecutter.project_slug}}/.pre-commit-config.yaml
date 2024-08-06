@@ -6,7 +6,8 @@ default_install_hook_types:
 
 exclude:
     (?x)^(
-        github/.*|
+        .azuredevops/.*|
+        .github/.*|
         data/.*|
         docs/.*|
         models/.*|
@@ -17,7 +18,7 @@ exclude:
     )$
 
 default_language_version:
-    python: 3.11.4 #{{cookiecutter.python_version}}
+    python: python{{cookiecutter.python_major_version}}
 
 repos:
 -  repo: https://github.com/pre-commit/pre-commit-hooks

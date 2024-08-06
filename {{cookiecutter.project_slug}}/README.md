@@ -1,4 +1,4 @@
-# {{cookiecutter.project_slug}} Table of Contents
+# UWC_chatbot Table of Contents
 
 <!-- vscode-markdown-toc -->
 - [Introduction](#introduction)
@@ -29,7 +29,7 @@ First, we need to connect our compute instance (local machine) to azure devops u
 
 See the step-by-step way of setting up SSH [here](https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
 
-If it's not installed, also install git in your local environment and set the global environment variables for 
+If it's not installed, also install git in your local environment and set the global environment variables for
 
 <br />
 <br />
@@ -39,22 +39,22 @@ If it's not installed, also install git in your local environment and set the gl
 When starting a project, you need to set up a repository. We want to do this by using our cookiecutter template as a, well, template. This works a bit differently than setting up a normal repository:
 1) First, we want to create an empty repository for our project.
 2) Second, want to __pull__ the cookiecutter template __into__ our local workspace. This triggers the cookiecutter template proces where we create our repository locally.
-3) Third, we then __push__ our local repository __into__ the empty repository we created, populating it with your nice filled/in template.  
+3) Third, we then __push__ our local repository __into__ the empty repository we created, populating it with your nice filled/in template.
 
 <br />
 <img style="display:block;width:300px;height:250px;
 margin-left:auto;margin-right:auto;"
-src="docs/images/readme/cc_init.JPG" 
+src="docs/images/readme/cc_init.JPG"
 alt="image"/>
 <br />
 
-First, start by creating an emtpy repository in Azure DevOps. 
+First, start by creating an emtpy repository in Azure DevOps.
 Uncheck the option to make a .gitignore and readme.
 
 <br />
 <img style="display:block;width:300px;height:200px;
-margin-left:auto;margin-right:auto;"  
-src="docs/images/readme/init_repository_devops.JPG" 
+margin-left:auto;margin-right:auto;"
+src="docs/images/readme/init_repository_devops.JPG"
 alt="image"/>
 <br />
 
@@ -96,8 +96,8 @@ On to the second step! Make sure you have a project folder where we will clone t
 Next, clone the repository using cookiecutter. Cookiecutter automatically recognizes that it's a repository, and starts the cookiecutter process. To guide you through filling out the template. At the end, it will ask you to initialize the environment. If you accept, a script is run that installs miniconda and automatically creates the conda environment with the given project name.
 
 <br />
-<img style="display:block;width:250px;height:70px;"  
-src="docs/images/readme/cc_template.JPG" 
+<img style="display:block;width:250px;height:70px;"
+src="docs/images/readme/cc_template.JPG"
 alt="image"/>
 <br />
 
@@ -112,7 +112,7 @@ git init -b main
 git add .
 
 # Add the remote empty git repo as the origin
-git remote add origin <REMOTE-REPO-URL> 
+git remote add origin <REMOTE-REPO-URL>
 
 # test that you have added the remote repo
 git remote -v

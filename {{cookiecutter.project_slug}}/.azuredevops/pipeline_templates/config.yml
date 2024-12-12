@@ -1,2 +1,0 @@
-variables:
-  pythonVersion: "{{cookiecutter.python_major_version}}.x"

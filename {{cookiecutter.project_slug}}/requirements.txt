@@ -1,4 +1,4 @@
-# Comes from dds project
+# Comes from dds project 
 black
 build
 chardet
@@ -7,8 +7,6 @@ isort
 pipenv
 termynal
 twine
-pylint
-mypy
 # comes from Rotterdam template
 setuptools>=65.6.3
 wheel
@@ -18,4 +16,3 @@ pyyaml
 pytest>=7.1.2
 pytest-azurepipelines
 pytest-cov
-pyyaml

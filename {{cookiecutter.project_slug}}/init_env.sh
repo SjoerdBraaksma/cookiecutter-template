@@ -1,18 +1,19 @@
-# Install all these in base environment of conda
-echo "installing pre-commit in base conda environment"
-command source activate base
+#  Ensure in base environment of conda
+# Install all these
+echo "installing pre-commit"
+command conda activate base
 command pip3 install pre-commit
 
 # Install requirements.txt if it's there
 if [ -f requirements.txt ]; then
-    command pip install -r requirements.txt 
+    command pip3 install -r requirements.txt
 fi
 
-# Install & activate conda environment 
-conda_env=$(yq -r .name conda_env.yaml)
-if [ -d ~/miniconda3/envs/$conda_env ]; then
+# Install & activate conda environment
+conda_env="{{cookiecutter.project_slug}}"
+if conda env list | grep -q "\b$conda_env\b"; then
     echo "A conda environment with the same name already exists, skipping installation."
 else
     echo "Creating conda environment from YAML"
-    command  conda env create -f conda_env.yaml 
+    command  conda env create -f conda_env.yaml
 fi

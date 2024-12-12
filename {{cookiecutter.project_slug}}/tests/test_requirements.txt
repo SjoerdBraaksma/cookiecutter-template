@@ -18,4 +18,3 @@ pyyaml
 pytest>=7.1.2
 pytest-azurepipelines
 pytest-cov
-pyyaml

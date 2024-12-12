@@ -1,4 +1,4 @@
-# Comes from dds project 
+# Comes from dds project
 black
 build
 chardet

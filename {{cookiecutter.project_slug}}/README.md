@@ -1,4 +1,4 @@
-# UWC_chatbot Table of Contents
+# {{ cookiecutter.project_slug }} Table of Contents
 
 <!-- vscode-markdown-toc -->
 - [Introduction](#introduction)
@@ -72,18 +72,18 @@ sudo apt install git-all
 On to the second step! Make sure you have a project folder where we will clone the cookiecutter repository into. It is recommended to have a folder with the same name as your project slug. Where you will copy the repository into. yes, this creates two folders with the same name, but will make sure you have a place to put repository-specific files that you don't want to push to your repository on accident. See an example below.
 
 ```
-│   └── {{cookiecutter.project_slug}} <-- You made this folder!
+│   └── {{ cookiecutter.project_slug }} <-- You made this folder!
 │       ├── cookiecutter.json
 │       ├── hooks
 │       │   └── post_gen_project.py
 │       ├── requirements_dev.txt
-│       └── {{cookiecutter.project_slug}}
+│       └── {{ cookiecutter.project_slug }}
 │           ├── LICENSE
 │           ├── README.md
 │           ├── app
-│           │   └── {{cookiecutter.project_slug}}
+│           │   └── {{ cookiecutter.project_slug }}
 │           │       ├── __init__.py
-│           │       └── {{cookiecutter.project_slug}}.py
+│           │       └── {{ cookiecutter.project_slug }}.py
 │           ├── changelog.md
 │           ├── conda_env.yaml
 │           ├── init_conda.sh

@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "{{cookiecutter.project_slug}}"
-version = "{{cookiecutter.version}}"
-description = "{{cookiecutter.project_short_description}}"
-authors = ["{{cookiecutter.full_name}} <cookiecutter.email>"]
-license = "{{cookiecutter.open_source_license}}"
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_short_description }}"
+authors = ["{{ cookiecutter.full_name }} {{ cookiecutter.email }}"]
+license = "{{ cookiecutter.open_source_license }}"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "{{cookiecutter.python_version}}"
+python = "{{ cookiecutter.python_version }}"
 langchain = "0.0.274"
 gpt4all = "1.0.8"
 chromadb = "0.4.12"

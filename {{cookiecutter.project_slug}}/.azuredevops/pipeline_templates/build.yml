@@ -15,7 +15,7 @@ steps:
     displayName: "Check version number format in  pyproject.toml"
 
   - script: |
-      response=$(curl -u :$(System.AccessToken) -o /dev/null -w "%{http_code}" 'https://feeds.dev.azure.com/nluwv/BIAnalytics/_apis/packaging/Feeds/{{cookiecutter.repo_name}}/packages?api-version=7.1-preview.1')
+      response=$(curl -u :$(System.AccessToken) -o /dev/null -w "%{http_code}" 'https://feeds.dev.azure.com/nluwv/BIAnalytics/_apis/packaging/Feeds/{{ cookiecutter.repo_name }}/packages?api-version=7.1-preview.1')
       echo "TEST ${response}"
       if [ ${response} -ne 200 ]; then
         echo "Please create Artifacts feed with same name as repo"
@@ -26,11 +26,11 @@ steps:
     displayName: "Check if Artifacts feed exists"
 
   - script: |
-      normalised_name=$(echo "{{cookiecutter.repo_name}}" | tr '[:upper:]' '[:lower:]' | sed 's/[^[:alnum:]]/-/g')
+      normalised_name=$(echo "{{ cookiecutter.repo_name }}" | tr '[:upper:]' '[:lower:]' | sed 's/[^[:alnum:]]/-/g')
       version_toml=$(tomlq -r '.tool.poetry.version' pyproject.toml)
-      response=$(curl -u :$(System.AccessToken) 'https://feeds.dev.azure.com/nluwv/BIAnalytics/_apis/packaging/Feeds/{{cookiecutter.repo_name}}/packages?api-version=7.1-preview.1' | jq '.value[] | select(.name == "'"$normalised_name"'" ) | .id')
+      response=$(curl -u :$(System.AccessToken) 'https://feeds.dev.azure.com/nluwv/BIAnalytics/_apis/packaging/Feeds/{{ cookiecutter.repo_name }}/packages?api-version=7.1-preview.1' | jq '.value[] | select(.name == "'"$normalised_name"'" ) | .id')
       response=${response//\"/}
-      versions_info=$(curl -u :$(System.AccessToken) "https://feeds.dev.azure.com/nluwv/BIAnalytics/_apis/packaging/Feeds/{{cookiecutter.repo_name}}/packages/$response/versions?%22api-version=7.1-preview.1%22")
+      versions_info=$(curl -u :$(System.AccessToken) "https://feeds.dev.azure.com/nluwv/BIAnalytics/_apis/packaging/Feeds/{{ cookiecutter.repo_name }}/packages/$response/versions?%22api-version=7.1-preview.1%22")
       versions=($(jq -r '.value[].protocolMetadata.data.version' <<< "${versions_info}"))
       echo "Existing version are ${versions[@]}"
       for version in "${versions[@]}"
@@ -57,12 +57,12 @@ steps:
 
   - task: TwineAuthenticate@1
     inputs:
-      artifactFeed: BIAnalytics/{{cookiecutter.repo_name}}
+      artifactFeed: BIAnalytics/{{ cookiecutter.repo_name }}
     condition:
       eq(variables.PublishPackage, true)
 
   - script: |
-      python -m twine upload -r "{{cookiecutter.repo_name}}" --config-file $(PYPIRC_PATH) dist/*.whl --verbose
+      python -m twine upload -r "{{ cookiecutter.repo_name }}" --config-file $(PYPIRC_PATH) dist/*.whl --verbose
     condition:
       and(eq(variables.isMain, true), eq(variables.PublishPackage, true))
     displayName: 'Artifacts feed upload'
